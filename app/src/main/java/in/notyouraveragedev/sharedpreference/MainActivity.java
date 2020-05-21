@@ -15,7 +15,6 @@ import java.util.Set;
 
 import in.notyouraveragedev.sharedpreference.domain.CustomObject;
 import in.notyouraveragedev.sharedpreference.domain.NonSerializable;
-import in.notyouraveragedev.sharedpreference.util.PreferenceManager;
 import in.notyouraveragedev.simplepreference.SimplePreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -55,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         preferenceManager = new SimplePreferenceManager.SimplePreferenceManagerBuilder(this)
                 .withObjectStorageSupport()
                 .build();
+
         // if data is available in shared preference then load the data from shared preference
         // if its not, the save the data into shared preference
         if (savedDataExists()) {
@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             saveData();
         }
-
 
         Map<String, Integer> intMap = new HashMap<>();
         intMap.put("ONE_I", 1);
@@ -154,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Method saves a boolean, string, integer, long, float
      * and a custom object into shared preference.
-     *
+     * <p>
      * Once the data is saved, this value is then fetched and displayed
      */
     private void saveData() {
